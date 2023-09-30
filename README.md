@@ -11,6 +11,14 @@ Python script for georeferencing scanned images, work on PNG and jpg.
 - geopandas 
 - opencv-python 
 
+### Installation
+
+To use, enter the following code in anaconda prompt
+
+```
+conda env create -f environment.yml
+```
+
 ### Using Map Boundaries 
 
 The code for georeferencing using the map boundaries was split into two parts. 
