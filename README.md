@@ -8,8 +8,10 @@ Python script for georeferencing scanned images, work on PNG and jpg.
 
 - gdal 
 - pandas 
-- geopandas 
-- opencv-python 
+- geopandas
+- opencv-python
+- openpyxl
+- tqdm 
 
 ### Usage
 
@@ -19,7 +21,26 @@ To use, enter the following code in anaconda prompt
 conda env create -f requirements.yml
 ```
 
+activate the environment using
+
+```
+conda activate autogeo
+```
+
 and run the code on your favorite code compiler
+
+If there are problem creating environment using requirements.yml, create the environment manually by using these codes
+
+```
+conda create -n autogeo
+
+conda install -y pip
+
+conda install -y gdal
+
+pip install pandas geopandas opencv-python openpyxl tqdm
+
+```
 
 ### Using Map Boundaries 
 
@@ -31,9 +52,19 @@ The Second one was *georeference_coord.ipynb*, which adds georeference to the sc
 
 - SOURCE: which is the folder path of the image that will be georeferenced. 
 - COORD: which is the result file from *get_expanded_bounds.ipynb*. 
-- RESULT: which is the path to the folder where the georeferenced image will be stored. 
+- RESULT: which is the path to the folder where the georeferenced image will be stored.
+- TEMP_FILE: folder path to save temporary file created during the process, will be deleted afterward.
+- EPSG: coordinate reference system used.
 
 ### Using Printed Coordinates 
+
+### Move files into their respective location
+
+To automatically sort files, use *move_kode.ipynb* using the following parameter
+
+- SOURCE: path for source folder.
+- DEST: path for the result folder.
+- KEYMAP: excel file containing the reference id for each location, for example see *Map Kode SLS ST2023.xlsx*.
 
 ### Limitation 
   
@@ -41,7 +72,7 @@ The Second one was *georeference_coord.ipynb*, which adds georeference to the sc
 - The algorithm to detect the map area from scanned images is still limited. 
 - Doesn't work on zoomed-in map or inset. 
 - The algorithm still has difficulties detecting the map if the border is covered (tainted or folded). 
-- Only works on a single folder 
+- Only works on a single folder.
 
 ### Future plan 
 
